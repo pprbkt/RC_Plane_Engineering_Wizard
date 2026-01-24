@@ -9,6 +9,7 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.AlertDialog
@@ -94,7 +96,6 @@ fun NeoButton(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NeoTextField(
     value: String,
@@ -131,6 +132,7 @@ fun NeoTextField(
 
     Column(modifier = modifier) {
         Box(modifier = Modifier.fillMaxWidth()) {
+            // Shadow
             Box(
                 modifier = Modifier
                     .matchParentSize()
@@ -138,35 +140,47 @@ fun NeoTextField(
                     .background(NeoBlack)
             )
 
-            OutlinedTextField(
-                value = value,
-                onValueChange = onValueChange,
-                label = { Text(label, style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold)) },
-                colors = OutlinedTextFieldDefaults.colors(
-                    focusedContainerColor = NeoWhite,
-                    unfocusedContainerColor = NeoWhite,
-                    focusedTextColor = NeoBlack,
-                    unfocusedTextColor = NeoBlack,
-                    focusedBorderColor = NeoBlack,
-                    unfocusedBorderColor = NeoBlack,
-                    cursorColor = NeoBlack,
-                ),
-                shape = RoundedCornerShape(0.dp),
-                trailingIcon = if (hint != null) {
-                    {
-                        IconButton(onClick = { showDialog = true }) {
-                            Icon(
-                                imageVector = Icons.Default.Info,
-                                contentDescription = "Hint",
-                                tint = NeoBlack
-                            )
-                        }
-                    }
-                } else null,
+            // Container
+            androidx.compose.foundation.layout.Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .background(NeoWhite)
                     .border(2.dp, NeoBlack)
-            )
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
+                    Text(
+                        text = label.uppercase(),
+                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                        color = NeoBlack
+                    )
+                    Spacer(modifier = Modifier.height(4.dp))
+                    androidx.compose.foundation.text.BasicTextField(
+                        value = value,
+                        onValueChange = onValueChange,
+                        textStyle = MaterialTheme.typography.bodyLarge.copy(
+                            fontWeight = FontWeight.Bold,
+                            color = NeoBlack,
+                            fontFamily = MaterialTheme.typography.bodyLarge.fontFamily
+                        ),
+                        keyboardOptions = keyboardOptions,
+                        singleLine = true,
+                        cursorBrush = androidx.compose.ui.graphics.SolidColor(NeoBlack),
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
+                
+                if (hint != null) {
+                    IconButton(onClick = { showDialog = true }) {
+                        Icon(
+                            imageVector = Icons.Default.Info,
+                            contentDescription = "Hint",
+                            tint = NeoBlack
+                        )
+                    }
+                }
+            }
         }
     }
 }
