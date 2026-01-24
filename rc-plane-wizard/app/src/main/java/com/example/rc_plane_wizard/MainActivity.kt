@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -39,7 +40,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = NeoWhite
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     WizardApp()
                 }
@@ -84,7 +85,7 @@ fun WizardApp() {
                         onClick = { navController.popBackStack() },
                         text = "BACK",
                         modifier = Modifier.weight(1f),
-                        containerColor = NeoWhite
+                        containerColor = MaterialTheme.colorScheme.surface
                     )
                 } else {
                      // Empty spacer to keep Next button on right if needed, or just occupy space

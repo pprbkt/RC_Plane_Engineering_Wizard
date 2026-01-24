@@ -10,6 +10,9 @@ val NeoBlack = Color(0xFF000000)
 val NeoWhite = Color(0xFFFFFFFF)
 val NeoGray = Color(0xFFF0F0F0)
 
+// New Grey for Dark Mode Borders
+val NeoGrayOutline = Color(0xFF909090)
+
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)

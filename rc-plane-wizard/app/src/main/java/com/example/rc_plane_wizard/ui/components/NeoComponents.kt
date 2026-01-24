@@ -67,7 +67,7 @@ fun NeoButton(
                 .fillMaxWidth()
                 .height(48.dp)
                 .offset(x = 4.dp, y = 4.dp)
-                .background(NeoBlack)
+                .background(MaterialTheme.colorScheme.outline)
         )
         
         Button(
@@ -76,11 +76,11 @@ fun NeoButton(
             shape = RoundedCornerShape(0.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = containerColor,
-                contentColor = NeoBlack,
+                contentColor = MaterialTheme.colorScheme.onSurface,
                 disabledContainerColor = Color.Gray,
                 disabledContentColor = Color.DarkGray
             ),
-            border = BorderStroke(2.dp, NeoBlack),
+            border = BorderStroke(2.dp, MaterialTheme.colorScheme.outline),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
             modifier = Modifier
                 .fillMaxWidth()
@@ -124,9 +124,9 @@ fun NeoTextField(
                     modifier = Modifier.width(120.dp)
                 )
             },
-            containerColor = NeoWhite,
+            containerColor = MaterialTheme.colorScheme.surface,
             shape = RoundedCornerShape(0.dp),
-            modifier = Modifier.border(2.dp, NeoBlack)
+            modifier = Modifier.border(2.dp, MaterialTheme.colorScheme.outline)
         )
     }
 
@@ -137,15 +137,15 @@ fun NeoTextField(
                 modifier = Modifier
                     .matchParentSize()
                     .offset(x = 4.dp, y = 4.dp)
-                    .background(NeoBlack)
+                    .background(MaterialTheme.colorScheme.outline)
             )
 
             // Container
             androidx.compose.foundation.layout.Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(NeoWhite)
-                    .border(2.dp, NeoBlack)
+                    .background(MaterialTheme.colorScheme.surface)
+                    .border(2.dp, MaterialTheme.colorScheme.outline)
                     .padding(horizontal = 16.dp, vertical = 8.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -153,7 +153,7 @@ fun NeoTextField(
                     Text(
                         text = label.uppercase(),
                         style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                        color = NeoBlack
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     androidx.compose.foundation.text.BasicTextField(
@@ -161,12 +161,12 @@ fun NeoTextField(
                         onValueChange = onValueChange,
                         textStyle = MaterialTheme.typography.bodyLarge.copy(
                             fontWeight = FontWeight.Bold,
-                            color = NeoBlack,
+                            color = MaterialTheme.colorScheme.onSurface,
                             fontFamily = MaterialTheme.typography.bodyLarge.fontFamily
                         ),
                         keyboardOptions = keyboardOptions,
                         singleLine = true,
-                        cursorBrush = androidx.compose.ui.graphics.SolidColor(NeoBlack),
+                        cursorBrush = androidx.compose.ui.graphics.SolidColor(MaterialTheme.colorScheme.onSurface),
                         modifier = Modifier.fillMaxWidth()
                     )
                 }
@@ -176,7 +176,7 @@ fun NeoTextField(
                         Icon(
                             imageVector = Icons.Default.Info,
                             contentDescription = "Hint",
-                            tint = NeoBlack
+                            tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
                 }
@@ -201,22 +201,22 @@ fun NeoDropdown(
                 modifier = Modifier
                     .matchParentSize()
                     .offset(x = 4.dp, y = 4.dp)
-                    .background(NeoBlack)
+                    .background(MaterialTheme.colorScheme.outline)
             )
 
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(64.dp)
-                    .background(NeoWhite)
-                    .border(2.dp, NeoBlack)
+                    .background(MaterialTheme.colorScheme.surface)
+                    .border(2.dp, MaterialTheme.colorScheme.outline)
                     .clickable { expanded = true }
                     .padding(horizontal = 16.dp),
                 contentAlignment = Alignment.CenterStart
             ) {
                 Column {
-                    Text(text = label, style = MaterialTheme.typography.labelSmall, color = NeoBlack)
-                    Text(text = selectedOption, style = MaterialTheme.typography.bodyLarge, color = NeoBlack)
+                    Text(text = label, style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurface)
+                    Text(text = selectedOption, style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurface)
                 }
             }
             
@@ -224,8 +224,8 @@ fun NeoDropdown(
                 expanded = expanded,
                 onDismissRequest = { expanded = false },
                 modifier = Modifier
-                    .background(NeoWhite)
-                    .border(2.dp, NeoBlack)
+                    .background(MaterialTheme.colorScheme.surface)
+                    .border(2.dp, MaterialTheme.colorScheme.outline)
             ) {
                 options.forEach { option ->
                     DropdownMenuItem(
@@ -244,7 +244,7 @@ fun NeoDropdown(
 @Composable
 fun NeoCard(
     modifier: Modifier = Modifier,
-    backgroundColor: Color = NeoWhite,
+    backgroundColor: Color = MaterialTheme.colorScheme.surface,
     content: @Composable () -> Unit
 ) {
     Box(modifier = modifier) {
@@ -252,7 +252,7 @@ fun NeoCard(
             modifier = Modifier
                 .matchParentSize()
                 .offset(x = 4.dp, y = 4.dp)
-                .background(NeoBlack)
+                .background(MaterialTheme.colorScheme.outline)
         )
         
         Box(

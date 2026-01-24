@@ -26,6 +26,7 @@ private val DarkColorScheme = darkColorScheme(
     onTertiary = NeoBlack,
     onBackground = NeoWhite,
     onSurface = NeoWhite,
+    outline = NeoGrayOutline
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -38,7 +39,8 @@ private val LightColorScheme = lightColorScheme(
     onSecondary = NeoBlack,
     onTertiary = NeoBlack,
     onBackground = NeoBlack,
-    onSurface = NeoBlack
+    onSurface = NeoBlack,
+    outline = NeoBlack
 )
 
 @Composable

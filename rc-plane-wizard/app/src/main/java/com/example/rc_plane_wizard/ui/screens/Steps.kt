@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.example.rc_plane_wizard.ui.components.NeoCard
 import com.example.rc_plane_wizard.ui.components.NeoDropdown
 import com.example.rc_plane_wizard.ui.components.NeoTextField
+import com.example.rc_plane_wizard.ui.theme.NeoBlack
 import com.example.rc_plane_wizard.ui.theme.NeoCyan
 import com.example.rc_plane_wizard.ui.theme.NeoGreen
 import com.example.rc_plane_wizard.ui.theme.NeoPink
@@ -46,12 +47,14 @@ fun StepContainer(
             Column {
                 Text(
                     text = "STEP 0$stepNumber",
-                    style = MaterialTheme.typography.labelSmall
+                    style = MaterialTheme.typography.labelSmall,
+                    color = NeoBlack
                 )
                 Text(
                     text = title.uppercase(),
                     style = MaterialTheme.typography.displayMedium,
-                    modifier = Modifier.padding(top = 8.dp)
+                    modifier = Modifier.padding(top = 8.dp),
+                    color = NeoBlack
                 )
             }
         }
