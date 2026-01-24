@@ -50,20 +50,17 @@ fun RCPlaneEngineeringWizardTheme(
     dynamicColor: Boolean = false, // Disable dynamic color to enforce neo-brutalism
     content: @Composable () -> Unit
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
-    }
+    // FORCE LIGHT THEME (NEO-BRUTALISM) ALWAYS
+    // We ignore the system dark theme setting to maintain the strict design style
+    val colorScheme = LightColorScheme
+
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
             window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            // Always set light status bars since we are forcing light theme
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = true
         }
     }
 
