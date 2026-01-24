@@ -256,6 +256,6 @@ fun LayoutStep(viewModel: WizardViewModel) {
 fun ResultItem(label: String, value: String) {
     Column {
         Text(label.uppercase(), style = MaterialTheme.typography.labelSmall)
-        Text(value, style = MaterialTheme.typography.displayMedium)
+        Text(value, style = MaterialTheme.typography.headlineMedium)
     }
 }
