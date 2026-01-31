@@ -122,9 +122,9 @@ If you want to modify the code, contribute, or run it via Android Studio.
 
 **Method 1: Git Clone (Recommended)**
 
-Bash
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   git clone https://github.com/paperbukit/RC_Plane_Engineering_Wizard.git   `
+```
+git clone https://github.com/paperbukit/RC_Plane_Engineering_Wizard.git
+```
 
 **Method 2: Download Archive**
 
